@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTech Academy | Formação em Tecnologia Moderna (Tailwind CSS)</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN Play -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- ========================================== -->
+  <!-- 1. NAVBAR COMPONENT                        -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+            <i class="fa-solid fa-code text-white text-lg"></i>
+          </div>
+          <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            DevTech<span class="text-brand-400">Academy</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#inicio" class="hover:text-brand-400 transition-colors">Início</a>
+          <a href="#cursos" class="hover:text-brand-400 transition-colors">Cursos</a>
+          <a href="#turmas" class="hover:text-brand-400 transition-colors">Grade de Turmas</a>
+          <a href="#contato" class="hover:text-brand-400 transition-colors">Contato</a>
+        </nav>
+
+        <!-- CTA & Modal Trigger -->
+        <div class="hidden md:flex items-center gap-4">
+          <a 
+            href="/" 
+            class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+            <i class="fa-brands fa-bootstrap mr-1 text-purple-400"></i> Versão Bootstrap
+          </a>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Tailwind Edition
+          </span>
+          <button 
+            id="open-modal-nav-btn"
+            type="button" 
+            class="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/25 transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-950">
+            <i class="fa-solid fa-graduation-cap mr-1.5"></i> Inscreva-se
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden">
+          <button 
+            id="mobile-menu-btn"
+            type="button" 
+            aria-expanded="false" 
+            aria-controls="mobile-menu"
+            class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+            <span class="sr-only">Abrir menu principal</span>
+            <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Collapsible Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950 px-4 pt-2 pb-5 space-y-2">
+      <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Início</a>
+      <a href="#cursos" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Cursos</a>
+      <a href="#turmas" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Grade de Turmas</a>
+      <a href="#contato" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Contato</a>
+      <div class="pt-3 border-t border-slate-800">
+        <button 
+          id="open-modal-mobile-btn"
+          type="button" 
+          class="w-full text-center px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 transition">
+          <i class="fa-solid fa-graduation-cap mr-2"></i> Inscreva-se Já
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO & CAROUSEL COMPONENT               -->
+  <!-- ========================================== -->
+  <section id="inicio" class="relative overflow-hidden py-12 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/30 mb-3">
+          <i class="fa-solid fa-bolt"></i> Acelere sua Carreira Dev
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+          Aprenda com quem constrói o <span class="bg-gradient-to-r from-brand-400 to-indigo-300 bg-clip-text text-transparent">futuro da tecnologia</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-400">
+          Programas imersivos focados em práticas reais do mercado global. Interface 100% construída com classes utilitárias Tailwind CSS.
+        </p>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900" id="tech-carousel">
+        
+        <!-- Slides Wrapper -->
+        <div class="relative h-[360px] sm:h-[420px] md:h-[460px] w-full overflow-hidden">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 pointer-events-auto">
+            <img 
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80" 
+              alt="Desenvolvedores em ambiente moderno de software" 
+              class="w-full h-full object-cover brightness-[0.35]"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-14">
+              <span class="px-3 py-1 w-fit rounded-md text-xs font-semibold uppercase tracking-wider bg-brand-500 text-white mb-3">Formação Full Stack</span>
+              <h3 class="text-2xl sm:text-4xl font-bold text-white mb-2">Engenharia de Software Web & Mobile</h3>
+              <p class="text-sm sm:text-base text-slate-300 max-w-2xl mb-6">
+                Domine ecossistemas TypeScript, React, Next.js, Node.js e Tailwind CSS criando aplicações robustas escaláveis.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#cursos" class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-white transition">
+                  Explorar Módulos <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none">
+            <img 
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80" 
+              alt="Infraestrutura em nuvem e redes conectadas" 
+              class="w-full h-full object-cover brightness-[0.35]"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-14">
+              <span class="px-3 py-1 w-fit rounded-md text-xs font-semibold uppercase tracking-wider bg-cyan-500 text-slate-950 mb-3">DevOps & Cloud</span>
+              <h3 class="text-2xl sm:text-4xl font-bold text-white mb-2">Arquitetura de Nuvem com AWS & Kubernetes</h3>
+              <p class="text-sm sm:text-base text-slate-300 max-w-2xl mb-6">
+                Construa esteiras CI/CD automatizadas, microsserviços conteinerizados e infraestrutura elástica como código.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <button type="button" class="open-modal-trigger inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition">
+                  Consultar Condições <i class="fa-solid fa-cloud ml-2 text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none">
+            <img 
+              src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1400&q=80" 
+              alt="Código de programação e inteligência artificial" 
+              class="w-full h-full object-cover brightness-[0.35]"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-end p-6 sm:p-10 md:p-14">
+              <span class="px-3 py-1 w-fit rounded-md text-xs font-semibold uppercase tracking-wider bg-purple-500 text-white mb-3">Inteligência Artificial</span>
+              <h3 class="text-2xl sm:text-4xl font-bold text-white mb-2">Engenharia de Machine Learning & LLMs</h3>
+              <p class="text-sm sm:text-base text-slate-300 max-w-2xl mb-6">
+                Integre modelos generativos, RAG e orquestração de dados em produtos de alta performance.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#turmas" class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold bg-purple-600 hover:bg-purple-500 text-white transition">
+                  Ver Próximas Turmas <i class="fa-solid fa-calendar-days ml-2 text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button 
+          id="carousel-prev"
+          type="button" 
+          aria-label="Slide anterior"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/60 backdrop-blur-sm flex items-center justify-center transition hover:scale-110 focus:outline-none">
+          <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <button 
+          id="carousel-next"
+          type="button" 
+          aria-label="Próximo slide"
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/60 backdrop-blur-sm flex items-center justify-center transition hover:scale-110 focus:outline-none">
+          <i class="fa-solid fa-chevron-right text-sm"></i>
+        </button>
+
+        <!-- Carousel Indicators (Dots) -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20">
+          <button type="button" class="carousel-dot w-8 h-2 rounded-full bg-brand-500 transition-all duration-300" data-slide-to="0" aria-label="Ir para slide 1"></button>
+          <button type="button" class="carousel-dot w-2.5 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" data-slide-to="1" aria-label="Ir para slide 2"></button>
+          <button type="button" class="carousel-dot w-2.5 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" data-slide-to="2" aria-label="Ir para slide 3"></button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. CARDS COMPONENT (CURSOS EM DESTAQUE)    -->
+  <!-- ========================================== -->
+  <section id="cursos" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-3">Cursos em Destaque</h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Explore as trilhas de conhecimento mais procuradas pelas empresas globais de tecnologia.
+      </p>
+    </div>
+
+    <!-- Responsive Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      
+      <!-- Card 1 -->
+      <article class="flex flex-col bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-lg hover:border-brand-500/50 hover:shadow-brand-500/10 hover:-translate-y-1.5 transition duration-300 group">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=700&q=80" 
+            alt="Frontend React e Design System" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          >
+          <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/90 text-slate-950 backdrop-blur-sm">
+            Inscrições Abertas
+          </span>
+          <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-950/80 text-brand-300 border border-slate-700 backdrop-blur-sm">
+            <i class="fa-solid fa-layer-group mr-1"></i> Front-End
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+              Engenharia Front-end Moderna
+            </h3>
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Construa interfaces de usuário dinâmicas com React 19, Next.js App Router, Tailwind CSS e componentização atômica.
+            </p>
+            <div class="flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800/80 pt-4 mb-5">
+              <span><i class="fa-regular fa-clock mr-1.5 text-brand-400"></i>120 Horas</span>
+              <span><i class="fa-solid fa-signal mr-1.5 text-brand-400"></i>Intermediário</span>
+              <span><i class="fa-regular fa-user mr-1.5 text-brand-400"></i>25 Vagas</span>
+            </div>
+          </div>
+          <button 
+            type="button" 
+            data-course-name="Engenharia Front-end Moderna"
+            class="open-modal-trigger w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-slate-800 hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition duration-200 flex items-center justify-center gap-2">
+            <span>Ver Detalhes do Curso</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="flex flex-col bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-lg hover:border-brand-500/50 hover:shadow-brand-500/10 hover:-translate-y-1.5 transition duration-300 group">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80" 
+            alt="Servidores e microsserviços backend" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          >
+          <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold bg-brand-500 text-white backdrop-blur-sm">
+            Mais Procurado
+          </span>
+          <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-950/80 text-cyan-300 border border-slate-700 backdrop-blur-sm">
+            <i class="fa-solid fa-server mr-1"></i> Back-End
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+              Microsserviços & APIs com Go & Node
+            </h3>
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Desenvolva serviços distribuídos de baixa latência, arquitetura orientada a eventos com Kafka e persistência otimizada com PostgreSQL e Redis.
+            </p>
+            <div class="flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800/80 pt-4 mb-5">
+              <span><i class="fa-regular fa-clock mr-1.5 text-cyan-400"></i>140 Horas</span>
+              <span><i class="fa-solid fa-signal mr-1.5 text-cyan-400"></i>Avançado</span>
+              <span><i class="fa-regular fa-user mr-1.5 text-cyan-400"></i>20 Vagas</span>
+            </div>
+          </div>
+          <button 
+            type="button" 
+            data-course-name="Microsserviços & APIs com Go & Node"
+            class="open-modal-trigger w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-slate-800 hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition duration-200 flex items-center justify-center gap-2">
+            <span>Ver Detalhes do Curso</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="flex flex-col bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-lg hover:border-brand-500/50 hover:shadow-brand-500/10 hover:-translate-y-1.5 transition duration-300 group">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" 
+            alt="Infraestrutura e automação em nuvem" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          >
+          <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 backdrop-blur-sm">
+            Últimas Vagas
+          </span>
+          <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-950/80 text-purple-300 border border-slate-700 backdrop-blur-sm">
+            <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Cloud & DevOps
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+              DevOps, Kubernetes & IaC
+            </h3>
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Automatize provisionamento com Terraform, orquestre clusters Kubernetes de produção e implemente observabilidade completa com Signoz e Prometheus.
+            </p>
+            <div class="flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800/80 pt-4 mb-5">
+              <span><i class="fa-regular fa-clock mr-1.5 text-purple-400"></i>100 Horas</span>
+              <span><i class="fa-solid fa-signal mr-1.5 text-purple-400"></i>Especialista</span>
+              <span><i class="fa-regular fa-user mr-1.5 text-purple-400"></i>15 Vagas</span>
+            </div>
+          </div>
+          <button 
+            type="button" 
+            data-course-name="DevOps, Kubernetes & IaC"
+            class="open-modal-trigger w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-slate-800 hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition duration-200 flex items-center justify-center gap-2">
+            <span>Ver Detalhes do Curso</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. TABLE COMPONENT (GRADE DE TURMAS)       -->
+  <!-- ========================================== -->
+  <section id="turmas" class="py-16 md:py-20 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-400">Cronograma 2026/2</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">Próximas Turmas & Horários</h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-md">
+          Aulas remotas ao vivo com mentores do mercado e suporte individual via Discord exclusivo.
+        </p>
+      </div>
+
+      <!-- Responsive Table Container with horizontal overflow -->
+      <div class="w-full overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+        <table class="w-full text-left text-sm text-slate-300">
+          
+          <!-- Table Header -->
+          <thead class="bg-slate-950/90 text-xs uppercase font-semibold text-slate-400 tracking-wider border-b border-slate-800">
+            <tr>
+              <th scope="col" class="py-4 px-6">Código / Trilha</th>
+              <th scope="col" class="py-4 px-6">Turno & Dias</th>
+              <th scope="col" class="py-4 px-6">Carga Horária</th>
+              <th scope="col" class="py-4 px-6">Instrutor Líder</th>
+              <th scope="col" class="py-4 px-6">Status</th>
+              <th scope="col" class="py-4 px-6 text-right">Ação</th>
+            </tr>
+          </thead>
+
+          <!-- Table Body with Zebra striping via Tailwind odd:bg-slate-900/80 -->
+          <tbody class="divide-y divide-slate-800/80">
+            
+            <!-- Row 1 -->
+            <tr class="odd:bg-slate-900/40 even:bg-slate-950/40 hover:bg-brand-950/30 transition-colors">
+              <td class="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+                  FS-2026-N1 &bull; Full Stack Moderno
+                </div>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap">Noturno (Seg / Qua) &bull; 19h - 22h</td>
+              <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs">120 horas</span></td>
+              <td class="py-4 px-6 whitespace-nowrap font-medium text-slate-200">Prof. Dr. Marcos Ribeiro</td>
+              <td class="py-4 px-6 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Aberta
+                </span>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap text-right">
+                <button type="button" class="open-modal-trigger text-xs font-semibold text-brand-400 hover:text-brand-300 hover:underline">
+                  Inscrever &rarr;
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="odd:bg-slate-900/40 even:bg-slate-950/40 hover:bg-brand-950/30 transition-colors">
+              <td class="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  CLD-2026-S1 &bull; Cloud & DevOps Pro
+                </div>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap">Sábados &bull; 08h30 - 13h30</td>
+              <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs">100 horas</span></td>
+              <td class="py-4 px-6 whitespace-nowrap font-medium text-slate-200">Profa. Msc. Camila Rocha</td>
+              <td class="py-4 px-6 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Aberta
+                </span>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap text-right">
+                <button type="button" class="open-modal-trigger text-xs font-semibold text-cyan-400 hover:text-cyan-300 hover:underline">
+                  Inscrever &rarr;
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="odd:bg-slate-900/40 even:bg-slate-950/40 hover:bg-brand-950/30 transition-colors">
+              <td class="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                  IA-2026-N2 &bull; Engenharia de Dados & IA
+                </div>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap">Noturno (Ter / Qui) &bull; 19h - 22h</td>
+              <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs">110 horas</span></td>
+              <td class="py-4 px-6 whitespace-nowrap font-medium text-slate-200">Prof. Dr. Diego Santos</td>
+              <td class="py-4 px-6 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Últimas Vagas
+                </span>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap text-right">
+                <button type="button" class="open-modal-trigger text-xs font-semibold text-purple-400 hover:text-purple-300 hover:underline">
+                  Garantir Vaga &rarr;
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="odd:bg-slate-900/40 even:bg-slate-950/40 hover:bg-brand-950/30 transition-colors">
+              <td class="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+                  UIX-2026-V1 &bull; UI/UX & Design Systems
+                </div>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap">Vespertino (Sex) &bull; 14h - 18h</td>
+              <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs">60 horas</span></td>
+              <td class="py-4 px-6 whitespace-nowrap font-medium text-slate-200">Profa. Beatriz Lima</td>
+              <td class="py-4 px-6 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Aberta
+                </span>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap text-right">
+                <button type="button" class="open-modal-trigger text-xs font-semibold text-pink-400 hover:text-pink-300 hover:underline">
+                  Inscrever &rarr;
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="odd:bg-slate-900/40 even:bg-slate-950/40 hover:bg-brand-950/30 transition-colors">
+              <td class="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                  SEC-2026-N3 &bull; DevSecOps & Red Team
+                </div>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap">Noturno (Seg / Qua) &bull; 19h - 22h</td>
+              <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs">90 horas</span></td>
+              <td class="py-4 px-6 whitespace-nowrap font-medium text-slate-200">Prof. Rafael Almeida</td>
+              <td class="py-4 px-6 whitespace-nowrap">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Aberta
+                </span>
+              </td>
+              <td class="py-4 px-6 whitespace-nowrap text-right">
+                <button type="button" class="open-modal-trigger text-xs font-semibold text-red-400 hover:text-red-300 hover:underline">
+                  Inscrever &rarr;
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. FORM COMPONENT (CONTATO & INTERESSE)    -->
+  <!-- ========================================== -->
+  <section id="contato" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Informational Left Column -->
+      <div class="lg:col-span-5 space-y-6">
+        <span class="text-xs font-semibold uppercase tracking-wider text-brand-400">Fale Conosco</span>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+          Tire dúvidas e inicie sua jornada na tecnologia
+        </h2>
+        <p class="text-slate-400 text-base leading-relaxed">
+          Preencha o formulário ao lado e nossa equipe de admissões acadêmicas entrará em contato em até 24 horas úteis com o plano pedagógico detalhado.
+        </p>
+
+        <div class="space-y-4 pt-4">
+          <div class="flex items-center gap-4 text-slate-300">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-400">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase font-semibold">Campus & Hub Tech</p>
+              <p class="text-sm font-medium text-white">Salvador / BA - UCSAL Pituaçu</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 text-slate-300">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase font-semibold">Contato Direto</p>
+              <p class="text-sm font-medium text-white">contato@devtechacademy.edu.br</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 text-slate-300">
+            <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+              <i class="fa-brands fa-discord"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase font-semibold">Comunidade Global</p>
+              <p class="text-sm font-medium text-white">+3.500 Desenvolvedores Ativos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Container Right Column -->
+      <div class="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
+        
+        <form id="contact-form" class="space-y-5" novalidate>
+          
+          <!-- Field 1: Nome Completo -->
+          <div>
+            <label for="nome" class="block text-sm font-medium text-slate-200 mb-1.5">
+              Nome Completo <span class="text-brand-400">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <i class="fa-regular fa-user"></i>
+              </span>
+              <input 
+                type="text" 
+                id="nome" 
+                name="nome" 
+                required 
+                placeholder="Ex: Ana Silva"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition duration-150"
+              >
+            </div>
+            <p id="nome-error" class="hidden text-xs text-rose-400 mt-1">Por favor, informe seu nome completo.</p>
+          </div>
+
+          <!-- Field 2: E-mail -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-200 mb-1.5">
+              E-mail de Contato <span class="text-brand-400">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <i class="fa-regular fa-envelope"></i>
+              </span>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="nome@exemplo.com"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition duration-150"
+              >
+            </div>
+            <p id="email-error" class="hidden text-xs text-rose-400 mt-1">Informe um endereço de e-mail válido.</p>
+          </div>
+
+          <!-- Field 3: Select Trilha de Curso -->
+          <div>
+            <label for="curso" class="block text-sm font-medium text-slate-200 mb-1.5">
+              Trilha de Conhecimento Desejada <span class="text-brand-400">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </span>
+              <select 
+                id="curso" 
+                name="curso" 
+                required 
+                class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950 border border-slate-700/80 text-white text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition duration-150 appearance-none">
+                <option value="" disabled selected class="text-slate-500">Selecione um curso...</option>
+                <option value="frontend">Engenharia Front-end Moderna (React & Next.js)</option>
+                <option value="backend">Microsserviços & APIs com Go & Node</option>
+                <option value="devops">DevOps, Kubernetes & IaC</option>
+                <option value="ia">Engenharia de Machine Learning & LLMs</option>
+                <option value="outros">Consultoria Corporativa In-Company</option>
+              </select>
+              <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-500">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </span>
+            </div>
+            <p id="curso-error" class="hidden text-xs text-rose-400 mt-1">Selecione uma trilha de seu interesse.</p>
+          </div>
+
+          <!-- Field 4: Mensagem (Textarea) -->
+          <div>
+            <label for="mensagem" class="block text-sm font-medium text-slate-200 mb-1.5">
+              Mensagem ou Objetivos de Carreira <span class="text-brand-400">*</span>
+            </label>
+            <textarea 
+              id="mensagem" 
+              name="mensagem" 
+              rows="4" 
+              required 
+              placeholder="Descreva seu nível técnico atual e quais objetivos pretende alcançar..."
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition duration-150 resize-y"
+            ></textarea>
+            <p id="mensagem-error" class="hidden text-xs text-rose-400 mt-1">Por favor, escreva uma mensagem com pelo menos 10 caracteres.</p>
+          </div>
+
+          <!-- Termos & Checkbox -->
+          <div class="flex items-start gap-2 pt-1">
+            <input 
+              id="termos" 
+              type="checkbox" 
+              required
+              class="mt-1 h-4 w-4 rounded border-slate-700 bg-slate-950 text-brand-600 focus:ring-brand-500 focus:ring-offset-slate-900"
+            >
+            <label for="termos" class="text-xs text-slate-400 leading-normal">
+              Concordo com o tratamento dos dados para contato pedagógico e recebi os termos do programa.
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="w-full py-3 px-6 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-lg shadow-brand-600/30 transition duration-150 flex items-center justify-center gap-2">
+            <span>Enviar Solicitação de Informações</span>
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+          </button>
+
+          <!-- Toast Feedback Message -->
+          <div id="form-success-alert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-lg"></i>
+            <span>Mensagem enviada com sucesso! Entraremos em contato em breve via e-mail.</span>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. MODAL COMPONENT (INTERATIVO COM JS)     -->
+  <!-- ========================================== -->
+  <div 
+    id="tech-modal" 
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <!-- Modal Card Box -->
+    <div 
+      id="tech-modal-box" 
+      class="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden scale-95 transition-all duration-300"
+    >
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm font-bold">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h3 id="modal-title" class="text-lg font-bold text-white">Inscrição & Bolsa de Estudos</h3>
+        </div>
+        <button 
+          id="close-modal-btn" 
+          type="button" 
+          aria-label="Fechar modal"
+          class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-4 text-sm text-slate-300">
+        <p class="leading-relaxed">
+          Você está a um passo de acelerar sua carreira na <strong class="text-white">DevTech Academy</strong>. Nosso processo seletivo avalia perfil lógico e comprometimento prático.
+        </p>
+
+        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-400">Trilha Selecionada:</span>
+            <span id="modal-selected-course" class="font-semibold text-brand-400">Formação Tecnológica 2026/2</span>
+          </div>
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-400">Desconto Especial:</span>
+            <span class="font-semibold text-emerald-400">Bolsa Mérito Acadêmico UCSAL (até 35%)</span>
+          </div>
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-400">Formato:</span>
+            <span class="font-semibold text-slate-200">100% Remoto com Mentorias Semanais</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400">
+          Clique em confirmar para ser redirecionado para o formulário de admissão ou escolha fechar para continuar navegando.
+        </p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-800 bg-slate-950/50">
+        <button 
+          id="modal-cancel-btn"
+          type="button" 
+          class="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">
+          Fechar
+        </button>
+        <button 
+          id="modal-confirm-btn"
+          type="button" 
+          class="px-5 py-2 rounded-xl text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition">
+          Garantir Minha Vaga
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FOOTER COMPONENT                           -->
+  <!-- ========================================== -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white text-sm">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <span class="text-sm font-semibold text-slate-300">
+          DevTech Academy &bull; UCSAL Tópicos Avançados em Frameworks
+        </span>
+      </div>
+
+      <p class="text-xs text-slate-500 text-center md:text-right">
+        Desenvolvido com <strong class="text-brand-400">Tailwind CSS (Utility-First)</strong> como Desafio Extra.<br>
+        100% Autônomo e Livre de Bootstrap.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT NATIVO (COMPORTAMENTO MODAL,    -->
+  <!-- CARROSSEL & NAVBAR MOBILE)                 -->
+  <!-- ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ------------------------------------------
+      // 1. Mobile Menu Toggle
+      // ------------------------------------------
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+            mobileBtn.setAttribute('aria-expanded', 'true');
+          } else {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Fechar mobile menu ao clicar nos links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // ------------------------------------------
+      // 2. Carousel Component Logic
+      // ------------------------------------------
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('carousel-prev');
+      const nextBtn = document.getElementById('carousel-next');
+      let currentSlide = 0;
+      let carouselInterval = null;
+
+      function updateSlide(index) {
+        slides.forEach((slide, idx) => {
+          if (idx === index) {
+            slide.classList.remove('opacity-0', 'pointer-events-none');
+            slide.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            slide.classList.remove('opacity-100', 'pointer-events-auto');
+            slide.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+
+        dots.forEach((dot, idx) => {
+          if (idx === index) {
+            dot.classList.remove('w-2.5', 'bg-slate-600');
+            dot.classList.add('w-8', 'bg-brand-500');
+          } else {
+            dot.classList.remove('w-8', 'bg-brand-500');
+            dot.classList.add('w-2.5', 'bg-slate-600');
+          }
+        });
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        updateSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlide(prev);
+      }
+
+      if (nextBtn && prevBtn && slides.length > 0) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          resetInterval();
+        });
+
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          resetInterval();
+        });
+
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            const slideIdx = parseInt(dot.getAttribute('data-slide-to'), 10);
+            updateSlide(slideIdx);
+            resetInterval();
+          });
+        });
+
+        function startInterval() {
+          carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetInterval() {
+          clearInterval(carouselInterval);
+          startInterval();
+        }
+
+        startInterval();
+      }
+
+      // ------------------------------------------
+      // 3. Modal Component Logic
+      // ------------------------------------------
+      const modal = document.getElementById('tech-modal');
+      const modalBox = document.getElementById('tech-modal-box');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const modalCancelBtn = document.getElementById('modal-cancel-btn');
+      const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+      const modalTriggers = document.querySelectorAll('.open-modal-trigger, #open-modal-nav-btn, #open-modal-mobile-btn');
+      const modalCourseLabel = document.getElementById('modal-selected-course');
+
+      function openModal(courseName = 'Formação Tecnológica 2026/2') {
+        if (!modal) return;
+        if (modalCourseLabel) modalCourseLabel.textContent = courseName;
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100', 'pointer-events-auto');
+        if (modalBox) {
+          modalBox.classList.remove('scale-95');
+          modalBox.classList.add('scale-100');
+        }
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        if (modalBox) {
+          modalBox.classList.remove('scale-100');
+          modalBox.classList.add('scale-95');
+        }
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      modalTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const course = btn.getAttribute('data-course-name') || 'Formação Especializada';
+          openModal(course);
+        });
+      });
+
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (modalCancelBtn) modalCancelBtn.addEventListener('click', closeModal);
+      
+      if (modalConfirmBtn) {
+        modalConfirmBtn.addEventListener('click', () => {
+          closeModal();
+          const contatoSection = document.getElementById('contato');
+          if (contatoSection) {
+            contatoSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      // Fechar modal ao clicar fora (no backdrop)
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+
+      // Fechar ao pressionar ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+          closeModal();
+        }
+      });
+
+      // ------------------------------------------
+      // 4. Form Validation & Feedback Logic
+      // ------------------------------------------
+      const contactForm = document.getElementById('contact-form');
+      const formAlert = document.getElementById('form-success-alert');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nome = document.getElementById('nome');
+          const email = document.getElementById('email');
+          const curso = document.getElementById('curso');
+          const mensagem = document.getElementById('mensagem');
+          const termos = document.getElementById('termos');
+
+          let isValid = true;
+
+          // Validação Nome
+          if (!nome.value.trim()) {
+            document.getElementById('nome-error').classList.remove('hidden');
+            isValid = false;
+          } else {
+            document.getElementById('nome-error').classList.add('hidden');
+          }
+
+          // Validação Email
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email.value.trim() || !emailRegex.test(email.value)) {
+            document.getElementById('email-error').classList.remove('hidden');
+            isValid = false;
+          } else {
+            document.getElementById('email-error').classList.add('hidden');
+          }
+
+          // Validação Curso
+          if (!curso.value) {
+            document.getElementById('curso-error').classList.remove('hidden');
+            isValid = false;
+          } else {
+            document.getElementById('curso-error').classList.add('hidden');
+          }
+
+          // Validação Mensagem
+          if (!mensagem.value.trim() || mensagem.value.trim().length < 10) {
+            document.getElementById('mensagem-error').classList.remove('hidden');
+            isValid = false;
+          } else {
+            document.getElementById('mensagem-error').classList.add('hidden');
+          }
+
+          // Termos
+          if (!termos.checked) {
+            isValid = false;
+          }
+
+          if (isValid) {
+            if (formAlert) {
+              formAlert.classList.remove('hidden');
+            }
+            contactForm.reset();
+            setTimeout(() => {
+              if (formAlert) formAlert.classList.add('hidden');
+            }, 6000);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

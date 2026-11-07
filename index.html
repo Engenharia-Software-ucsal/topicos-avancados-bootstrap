@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevTech Academy - Capacitação profissional de alto nível em tecnologia, programação web, cloud computing e inteligência artificial.">
+  <title>DevTech Academy | Cursos Avançados em Tecnologia</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-body-tertiary">
+
+  <!-- ========================================== -->
+  <!-- 1. HEADER & NAVBAR RESPONSIVA             -->
+  <!-- ========================================== -->
+  <header class="sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center fw-bold fs-4" href="#heroCarousel">
+          <i class="bi bi-cpu-fill text-primary me-2 fs-3"></i>
+          <span>DevTech<span class="text-primary">.Academy</span></span>
+        </a>
+
+        <!-- Botão Toggler Mobile -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu Colapsável -->
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#heroCarousel">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#diferenciais">Diferenciais</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cursos">Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#turmas">Turmas & Vagas</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn nav-link text-start" data-bs-toggle="modal" data-bs-target="#modalMatricula">
+                Termos
+              </button>
+            </li>
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a class="btn btn-primary px-4 rounded-pill fw-semibold shadow-sm" href="#inscricao">
+                <i class="bi bi-person-plus-fill me-1"></i> Inscreva-se
+              </a>
+            </li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <a class="btn btn-outline-info btn-sm px-3 rounded-pill fw-semibold shadow-sm" href="/tailwind/">
+                <i class="bi bi-wind me-1"></i> Versão Tailwind (+0,2 pts)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- 2. CARROSSEL (HERO SECTION)                -->
+    <!-- ========================================== -->
+    <section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" aria-label="Carrossel de Destaques">
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1: Full Stack"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2: DevOps e Cloud"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3: Inteligência Artificial"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" data-bs-interval="6000">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Espaço de trabalho de programador com código na tela">
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center">
+            <span class="badge bg-primary px-3 py-2 text-uppercase mb-2">Carreira em Alta</span>
+            <h1 class="display-4 fw-bold">Formação Full Stack Moderno</h1>
+            <p class="lead col-lg-8 mx-auto">Domine o ecossistema React, Node.js, TypeScript e arquitetura de microserviços com metodologias ágeis de mercado.</p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#cursos" class="btn btn-primary btn-lg px-4 shadow">Explorar Cursos</a>
+              <a href="#inscricao" class="btn btn-outline-light btn-lg px-4">Inscreva-se Agora</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" data-bs-interval="6000">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Servidores de datacenter com iluminação moderna">
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center">
+            <span class="badge bg-success px-3 py-2 text-uppercase mb-2">Infraestrutura Ágil</span>
+            <h1 class="display-4 fw-bold">DevOps, Docker & Cloud Computing</h1>
+            <p class="lead col-lg-8 mx-auto">Automatize pipelines de CI/CD, implemente Kubernetes na AWS e gerencie infraestrutura como código (IaC) com Terraform.</p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#turmas" class="btn btn-success btn-lg px-4 shadow">Ver Turmas</a>
+              <a href="#inscricao" class="btn btn-outline-light btn-lg px-4">Quero uma Bolsa</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" data-bs-interval="6000">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Conexões neurais abstratas representando inteligência artificial">
+          <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center">
+            <span class="badge bg-info text-dark px-3 py-2 text-uppercase mb-2">Fronteira Tecnológica</span>
+            <h1 class="display-4 fw-bold">Inteligência Artificial & LLMs</h1>
+            <p class="lead col-lg-8 mx-auto">Construa aplicações generativas, integre modelos de linguagem e aprenda RAG, agentes autônomos e fine-tuning prático.</p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#cursos" class="btn btn-info btn-lg px-4 shadow text-dark fw-semibold">Conhecer Ementa</a>
+              <a href="#inscricao" class="btn btn-outline-light btn-lg px-4">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles de Navegação -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SEÇÃO DE BENEFÍCIOS / DIFERENCIAIS         -->
+    <!-- ========================================== -->
+    <section id="diferenciais" class="py-5 bg-white border-bottom">
+      <div class="container py-3">
+        <div class="row g-4 text-center">
+          <div class="col-12 col-md-4">
+            <div class="p-3">
+              <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary rounded-circle mb-3 p-3">
+                <i class="bi bi-award-fill fs-2"></i>
+              </div>
+              <h2 class="h5 fw-bold">Certificação Válida</h2>
+              <p class="text-muted mb-0">Certificado com respaldo acadêmico e reconhecimento pelas principais big techs e startups do mercado.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="p-3">
+              <div class="d-inline-flex align-items-center justify-content-center bg-success-subtle text-success rounded-circle mb-3 p-3">
+                <i class="bi bi-laptop-fill fs-2"></i>
+              </div>
+              <h2 class="h5 fw-bold">Projetos Reais & Portfólio</h2>
+              <p class="text-muted mb-0">Desenvolvimento prático orientado a desafios reais com repositórios GitHub prontos para entrevistas técnicas.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="p-3">
+              <div class="d-inline-flex align-items-center justify-content-center bg-info-subtle text-info-emphasis rounded-circle mb-3 p-3">
+                <i class="bi bi-people-fill fs-2"></i>
+              </div>
+              <h2 class="h5 fw-bold">Mentoria Especializada</h2>
+              <p class="text-muted mb-0">Acompanhamento contínuo de código com engenheiros sêniores e plantões semanais de tira-dúvidas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. CARDS DE CURSOS EM DESTAQUE             -->
+    <!-- ========================================== -->
+    <section id="cursos" class="py-5 bg-light">
+      <div class="container py-4">
+        <div class="row text-center mb-5">
+          <div class="col-lg-8 mx-auto">
+            <span class="text-primary fw-bold text-uppercase small tracking-wide">Especializações</span>
+            <h2 class="display-6 fw-bold mt-1">Cursos em Destaque</h2>
+            <p class="text-muted">Currículos desenhados para acelerar sua trajetória profissional com as stacks mais demandadas pela indústria de software.</p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1: Full Stack -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Código no editor de texto com sintaxe colorida">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Desenvolvimento</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>180 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">Full Stack Web Moderno</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Aprenda a construir aplicações escaláveis com React 19, Next.js, Node.js, Express, PostgreSQL e deploy automatizado.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Arquitetura limpa e SOLID</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Autenticação JWT e OAuth 2.0</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Testes com Vitest e Playwright</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 1.890 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-primary btn-sm px-3">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: DevOps e Cloud -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Ilustração de arquitetura em nuvem e containers">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-success-subtle text-success border border-success-subtle">Cloud & SRE</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>140 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">DevOps & Cloud Architecture</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Orquestre contêineres com Docker e Kubernetes, gerencie nuvem AWS e configure esteiras seguras no GitHub Actions.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Terraform e Infraestrutura como Código</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Monitoramento com Prometheus & Grafana</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Práticas de DevSecOps</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 1.950 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-success btn-sm px-3">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: IA e Data Science -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Representação visual de inteligência artificial generativa">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle">IA & Dados</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>160 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">Engenharia de IA & LLMs</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Construa sistemas RAG de alta fidelidade, integre OpenAI, Anthropic e modelos open-source via LangChain e LlamaIndex.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Bancos de vetores (Qdrant & Pinecone)</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Arquitetura de Agentes Autônomos</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Técnicas avançadas de Prompt Engineering</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 2.200 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-info btn-sm px-3 text-dark fw-semibold">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Segurança da Informação -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Interface de cibersegurança e proteção de dados">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Segurança</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>120 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">Cibersegurança & Pentest</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Análise de vulnerabilidades, auditoria de código, segurança defensiva e ofensiva alinhada às diretrizes da OWASP Top 10.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Testes de intrusão em aplicações web</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Criptografia aplicada e conformidade LGPD</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Simulação em ambiente controlado (CTF)</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 1.750 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-outline-danger btn-sm px-3">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Mobile Multiplataforma -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Smartphones exibindo aplicativos móveis">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">Mobile</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>130 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">Mobile com Flutter & Dart</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Crie apps nativos de alto desempenho para iOS e Android compartilhando uma única base de código moderna e declarativa.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Gerenciamento de estado (Bloc / Provider)</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Integração com Firebase e REST APIs</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Publicação na Google Play e App Store</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 1.680 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-outline-warning btn-sm px-3 text-dark">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: UI/UX & Design Systems -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Designer prototipando interface de usuário no computador">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">Design</span>
+                  <span class="badge bg-secondary-subtle text-secondary"><i class="bi bi-clock me-1"></i>100 horas</span>
+                </div>
+                <h3 class="card-title h5 fw-bold">UI/UX Design Systems</h3>
+                <p class="card-text text-muted flex-grow-1">
+                  Projete interfaces centradas no usuário no Figma, crie tokens de design, componentes reutilizáveis e fluxos acessíveis.
+                </p>
+                <ul class="list-unstyled small text-secondary my-3 border-top pt-3">
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Pesquisa e testes de usabilidade com usuários</li>
+                  <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Padrões de acessibilidade W3C/WCAG</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Handoff eficiente com times de engenharia</li>
+                </ul>
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between">
+                  <span class="fs-5 fw-bold text-dark">R$ 1.490 <small class="fs-6 fw-normal text-muted">à vista</small></span>
+                  <a href="#inscricao" class="btn btn-outline-secondary btn-sm px-3">
+                    <i class="bi bi-check2-circle me-1"></i> Inscrever
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. TABELA RESPONSIVA: GRADE DE TURMAS       -->
+    <!-- ========================================== -->
+    <section id="turmas" class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="row text-center mb-5">
+          <div class="col-lg-8 mx-auto">
+            <span class="text-primary fw-bold text-uppercase small tracking-wide">Planejamento 2026.2</span>
+            <h2 class="display-6 fw-bold mt-1">Grade de Turmas e Vagas</h2>
+            <p class="text-muted">Acompanhe as próximas turmas confirmadas, datas de início, turnos e disponibilidade em tempo real.</p>
+          </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle mb-0" summary="Tabela contendo a lista de cursos com código da turma, modalidade, data de início, horário e status de vagas.">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col" class="py-3 ps-4">Código</th>
+                  <th scope="col" class="py-3">Curso</th>
+                  <th scope="col" class="py-3">Modalidade</th>
+                  <th scope="col" class="py-3">Início</th>
+                  <th scope="col" class="py-3">Turno / Horário</th>
+                  <th scope="col" class="py-3 text-center">Vagas</th>
+                  <th scope="col" class="py-3 text-center">Status</th>
+                  <th scope="col" class="py-3 text-end pe-4">Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">FS-2026A</td>
+                  <td>
+                    <strong>Full Stack Web Moderno</strong><br>
+                    <small class="text-muted">React, Node.js & TypeScript</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Ao Vivo Online</span></td>
+                  <td>15/09/2026</td>
+                  <td>Seg / Qua (19h30 - 22h30)</td>
+                  <td class="text-center fw-semibold">04</td>
+                  <td class="text-center">
+                    <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle-fill me-1"></i>Últimas Vagas</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <a href="#inscricao" class="btn btn-outline-primary btn-sm">Garantir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">DOC-2026B</td>
+                  <td>
+                    <strong>DevOps & Cloud Architecture</strong><br>
+                    <small class="text-muted">Docker, Kubernetes & AWS</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Ao Vivo Online</span></td>
+                  <td>22/09/2026</td>
+                  <td>Ter / Qui (19h30 - 22h30)</td>
+                  <td class="text-center fw-semibold">12</td>
+                  <td class="text-center">
+                    <span class="badge bg-success"><i class="bi bi-check-circle-fill me-1"></i>Confirmada</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <a href="#inscricao" class="btn btn-outline-primary btn-sm">Garantir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">IA-2026C</td>
+                  <td>
+                    <strong>Engenharia de IA & LLMs</strong><br>
+                    <small class="text-muted">RAG, LangChain & Agentes Autônomos</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Híbrido</span></td>
+                  <td>05/10/2026</td>
+                  <td>Sábados (08h30 - 17h30)</td>
+                  <td class="text-center fw-semibold">02</td>
+                  <td class="text-center">
+                    <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle-fill me-1"></i>Últimas Vagas</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <a href="#inscricao" class="btn btn-outline-primary btn-sm">Garantir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">SEC-2026D</td>
+                  <td>
+                    <strong>Cibersegurança & Pentest</strong><br>
+                    <small class="text-muted">OWASP, Ethical Hacking & Red Team</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Ao Vivo Online</span></td>
+                  <td>14/10/2026</td>
+                  <td>Seg / Qua (19h30 - 22h30)</td>
+                  <td class="text-center fw-semibold">18</td>
+                  <td class="text-center">
+                    <span class="badge bg-info text-dark"><i class="bi bi-info-circle-fill me-1"></i>Inscrições Abertas</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <a href="#inscricao" class="btn btn-outline-primary btn-sm">Garantir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">MOB-2026E</td>
+                  <td>
+                    <strong>Mobile com Flutter & Dart</strong><br>
+                    <small class="text-muted">iOS & Android Nativo</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Ao Vivo Online</span></td>
+                  <td>20/10/2026</td>
+                  <td>Ter / Qui (19h30 - 22h30)</td>
+                  <td class="text-center fw-semibold">15</td>
+                  <td class="text-center">
+                    <span class="badge bg-info text-dark"><i class="bi bi-info-circle-fill me-1"></i>Inscrições Abertas</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <a href="#inscricao" class="btn btn-outline-primary btn-sm">Garantir</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 fw-bold font-monospace text-primary">UIX-2026F</td>
+                  <td>
+                    <strong>UI/UX Design Systems</strong><br>
+                    <small class="text-muted">Figma, Design Tokens & Acessibilidade</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Ao Vivo Online</span></td>
+                  <td>01/09/2026</td>
+                  <td>Sábados (09h00 - 13h00)</td>
+                  <td class="text-center fw-semibold">00</td>
+                  <td class="text-center">
+                    <span class="badge bg-danger"><i class="bi bi-x-circle-fill me-1"></i>Esgotado</span>
+                  </td>
+                  <td class="text-end pe-4">
+                    <button class="btn btn-secondary btn-sm" disabled>Lista de Espera</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. FORMULÁRIO DE INSCRIÇÃO & CONTATO       -->
+    <!-- ========================================== -->
+    <section id="inscricao" class="py-5 bg-light">
+      <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="card shadow border-0 rounded-4 overflow-hidden">
+              <div class="card-header bg-primary text-white p-4">
+                <div class="d-flex align-items-center">
+                  <div class="bg-white bg-opacity-25 p-3 rounded-circle me-3">
+                    <i class="bi bi-pencil-square fs-3 text-white"></i>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-1 fw-bold">Inscrição e Candidatura de Bolsa</h2>
+                    <p class="mb-0 text-white-50 small">Preencha seus dados abaixo para iniciar o processo seletivo da DevTech Academy.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body p-4 p-md-5">
+                <!-- Alerta de feedback simulado -->
+                <div id="formSuccessAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                  <i class="bi bi-check-circle-fill me-2 fs-5 align-middle"></i>
+                  <strong>Inscrição enviada com sucesso!</strong> Nossa equipe acadêmica entrará em contato pelo e-mail fornecido nas próximas 24 horas.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+
+                <form class="needs-validation" novalidate id="formMatricula">
+                  <div class="row g-3">
+                    <!-- Nome Completo -->
+                    <div class="col-12 col-md-6">
+                      <label for="nomeCompleto" class="form-label fw-semibold">Nome Completo <span class="text-danger">*</span></label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" placeholder="Ex: Maria Silva" required minlength="3">
+                        <div class="invalid-feedback">
+                          Por favor, informe seu nome completo (mínimo 3 caracteres).
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- E-mail Corporativo/Pessoal -->
+                    <div class="col-12 col-md-6">
+                      <label for="emailContato" class="form-label fw-semibold">E-mail <span class="text-danger">*</span></label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                        <input type="email" class="form-control" id="emailContato" name="emailContato" placeholder="seu.email@dominio.com" required>
+                        <div class="invalid-feedback">
+                          Por favor, forneça um endereço de e-mail válido.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Telefone / WhatsApp -->
+                    <div class="col-12 col-md-6">
+                      <label for="telefoneContato" class="form-label fw-semibold">WhatsApp / Telefone <span class="text-danger">*</span></label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                        <input type="tel" class="form-control" id="telefoneContato" name="telefoneContato" placeholder="(71) 99999-9999" required pattern="[0-9()\-+ ]{10,20}">
+                        <div class="invalid-feedback">
+                          Informe um número de contato válido com DDD.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Curso de Interesse -->
+                    <div class="col-12 col-md-6">
+                      <label for="cursoInteresse" class="form-label fw-semibold">Curso de Interesse <span class="text-danger">*</span></label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text"><i class="bi bi-mortarboard"></i></span>
+                        <select class="form-select" id="cursoInteresse" name="cursoInteresse" required>
+                          <option value="" selected disabled>Selecione uma formação...</option>
+                          <option value="fullstack">Formação Full Stack Web Moderno</option>
+                          <option value="devops">DevOps & Cloud Architecture (AWS)</option>
+                          <option value="ia">Engenharia de IA & Agentes LLM</option>
+                          <option value="cyber">Cibersegurança & Ethical Hacking</option>
+                          <option value="mobile">Mobile com Flutter & Dart</option>
+                          <option value="uiux">UI/UX Design Systems</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Selecione o curso no qual deseja se inscrever.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Nível de Experiência Atual -->
+                    <div class="col-12">
+                      <label for="nivelExperiencia" class="form-label fw-semibold">Nível Atual na Área Tech</label>
+                      <select class="form-select" id="nivelExperiencia" name="nivelExperiencia">
+                        <option value="iniciante">Iniciante (Transição de Carreira / Estudante)</option>
+                        <option value="junior">Desenvolvedor Júnior (1 a 2 anos de experiência)</option>
+                        <option value="pleno">Desenvolvedor Pleno (3 a 5 anos de experiência)</option>
+                        <option value="senior">Sênior / Especialista / Tech Lead</option>
+                      </select>
+                    </div>
+
+                    <!-- Mensagem / Objetivo Profissional -->
+                    <div class="col-12">
+                      <label for="mensagemObjetivo" class="form-label fw-semibold">Objetivo Profissional e Expectativas <span class="text-danger">*</span></label>
+                      <textarea class="form-control" id="mensagemObjetivo" name="mensagemObjetivo" rows="4" placeholder="Descreva brevemente sua motivação, objetivos com a capacitação e disponibilidade de estudos..." required minlength="10"></textarea>
+                      <div class="invalid-feedback">
+                        Por favor, compartilhe seus objetivos profissionais (mínimo 10 caracteres).
+                      </div>
+                    </div>
+
+                    <!-- Termos de Aceite -->
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="aceiteTermos" required>
+                        <label class="form-check-label small" for="aceiteTermos">
+                          Declaro que li e concordo com os 
+                          <button type="button" class="btn btn-link p-0 align-baseline text-decoration-underline" data-bs-toggle="modal" data-bs-target="#modalMatricula">
+                            Termos de Matrícula e Políticas Acadêmicas
+                          </button>
+                          da DevTech Academy. <span class="text-danger">*</span>
+                        </label>
+                        <div class="invalid-feedback">
+                          Você deve aceitar os termos antes de prosseguir com a inscrição.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Botão de Envio -->
+                    <div class="col-12 mt-4">
+                      <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold shadow-sm">
+                        <i class="bi bi-send-fill me-2"></i> Confirmar Inscrição na DevTech Academy
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. MODAL DE TERMOS E DETALHES              -->
+    <!-- ========================================== -->
+    <div class="modal fade" id="modalMatricula" tabindex="-1" aria-labelledby="modalMatriculaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-dark text-white">
+            <h3 class="modal-title h5 d-flex align-items-center" id="modalMatriculaLabel">
+              <i class="bi bi-file-earmark-text-fill text-primary me-2"></i>
+              Termos de Matrícula & Políticas Acadêmicas
+            </h3>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body p-4">
+            <h4 class="h6 fw-bold text-primary">1. Sobre o Programa DevTech Academy</h4>
+            <p class="small text-muted">
+              A DevTech Academy é uma instituição de capacitação técnica imersiva focada no desenvolvimento de habilidades contemporâneas em computação aplicada, arquitetura de software, DevOps e Inteligência Artificial.
+            </p>
+
+            <h4 class="h6 fw-bold text-primary mt-3">2. Requisitos de Frequência e Aprovação</h4>
+            <p class="small text-muted">
+              Para obtenção do certificado de conclusão com registro de horas e ementa detalhada, o estudante deverá cumprir:
+            </p>
+            <ul class="small text-muted">
+              <li>Presença mínima de 75% nas sessões síncronas ou acompanhamento verificado na plataforma online;</li>
+              <li>Entrega de todos os checkpoints práticos e do Projeto Final Integrador (CapStone Project);</li>
+              <li>Atingimento de pontuação igual ou superior a 7,0 (sete) na avaliação técnica orientada por rubricas.</li>
+            </ul>
+
+            <h4 class="h6 fw-bold text-primary mt-3">3. Requisitos de Hardware e Ambiente</h4>
+            <p class="small text-muted">
+              O aluno é responsável por possuir computador com acesso à internet banda larga, permissões administrativas para instalação de softwares (Node.js, Docker, Git, VS Code) e microfone funcional para as sessões de mentoria.
+            </p>
+
+            <h4 class="h6 fw-bold text-primary mt-3">4. Propriedade Intelectual e Código Aberto</h4>
+            <p class="small text-muted mb-0">
+              Todos os projetos desenvolvidos durante os cursos são de autoria do aluno e podem ser hospedados livremente sob licenças Open Source em repositórios pessoais (GitHub/GitLab) para composição de portfólio profissional.
+            </p>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="document.getElementById('aceiteTermos').checked = true;">
+              <i class="bi bi-check-lg me-1"></i> Entendido e Concordo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER SEMÂNTICO                           -->
+  <!-- ========================================== -->
+  <footer class="bg-dark text-white pt-5 pb-4 border-top border-secondary">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Coluna 1: Sobre -->
+        <div class="col-12 col-md-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-cpu-fill text-primary fs-3 me-2"></i>
+            <span class="fs-4 fw-bold">DevTech<span class="text-primary">.Academy</span></span>
+          </div>
+          <p class="text-secondary small">
+            Plataforma acadêmica dedicada ao treinamento intensivo e qualificação profissional em tecnologias emergentes de software e engenharia digital.
+          </p>
+          <div class="d-flex gap-3 text-secondary mt-3 fs-5">
+            <a href="https://github.com" class="text-secondary text-decoration-none" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com" class="text-secondary text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://youtube.com" class="text-secondary text-decoration-none" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://twitter.com" class="text-secondary text-decoration-none" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="col-6 col-md-2">
+          <h5 class="fw-bold mb-3 fs-6 text-uppercase text-white-50">Navegação</h5>
+          <ul class="list-unstyled small text-secondary">
+            <li class="mb-2"><a href="#heroCarousel" class="text-decoration-none text-secondary">Início</a></li>
+            <li class="mb-2"><a href="#diferenciais" class="text-decoration-none text-secondary">Diferenciais</a></li>
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">Cursos</a></li>
+            <li class="mb-2"><a href="#turmas" class="text-decoration-none text-secondary">Turmas</a></li>
+            <li class="mb-2"><a href="#inscricao" class="text-decoration-none text-secondary">Inscrição</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Especializações -->
+        <div class="col-6 col-md-3">
+          <h5 class="fw-bold mb-3 fs-6 text-uppercase text-white-50">Especializações</h5>
+          <ul class="list-unstyled small text-secondary">
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">Full Stack React & Node</a></li>
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">DevOps & Cloud AWS</a></li>
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">IA & Large Language Models</a></li>
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">Cibersegurança Defensiva</a></li>
+            <li class="mb-2"><a href="#cursos" class="text-decoration-none text-secondary">Mobile Flutter & Dart</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Identificação Acadêmica UCSAL -->
+        <div class="col-12 col-md-3">
+          <h5 class="fw-bold mb-3 fs-6 text-uppercase text-white-50">Contexto Acadêmico</h5>
+          <div class="card bg-secondary bg-opacity-10 border-secondary text-white p-3">
+            <span class="badge bg-primary w-fit mb-2">UCSAL</span>
+            <p class="small text-white-50 mb-1"><strong>Disciplina:</strong> Tópicos Avançados em Frameworks</p>
+            <p class="small text-white-50 mb-1"><strong>Atividade:</strong> Aplicação Prática Bootstrap 5</p>
+            <p class="small text-white-50 mb-0"><strong>Semestre:</strong> 2026.2</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary my-4">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <p class="small text-secondary mb-0">
+            &copy; 2026 DevTech Academy. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <p class="small text-secondary mb-0">
+            Construído com <i class="bi bi-heart-fill text-danger"></i> utilizando <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-underline">Bootstrap 5.3</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle com Popper incluso -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Script Customizado (Validação e Comportamentos) -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
