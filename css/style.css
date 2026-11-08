@@ -1,16 +1,15 @@
-/* Custom styles for DevTech Academy */
+/* Estilos complementares da aplicação */
 :root {
-  --primary-accent: #0d6efd;
-  --secondary-accent: #0dcaf0;
+  --primary-color: #0d6efd;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 70px;
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,48 +19,39 @@ main {
   flex: 1 0 auto;
 }
 
-/* Carousel custom styling */
+/* Ajuste de proporção das imagens do carrossel */
 .carousel-item {
-  height: 560px;
-  background-color: #000;
+  height: 480px;
+  background-color: #212529;
 }
 
 .carousel-item img {
   height: 100%;
   object-fit: cover;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .carousel-caption {
-  bottom: 20%;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  bottom: 12%;
 }
 
 @media (max-width: 768px) {
   .carousel-item {
-    height: 420px;
-  }
-  .carousel-caption {
-    bottom: 12%;
+    height: 320px;
   }
 }
 
-/* Cards image height */
+/* Altura padrão para imagens dos cards */
 .card-img-top {
-  height: 210px;
+  height: 190px;
   object-fit: cover;
 }
 
 .card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Section styling */
-section {
-  position: relative;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
